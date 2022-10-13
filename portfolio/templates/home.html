@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-6">
+        <img src="{% static 'portfolio/marlon_cv.png' %}"
+            class="img-fluid m-2 rounded" alt="Marlon's Logo">
+    </div> 
+    <div class="col-md-6 my-auto">
+        <h1>Marlon F. H.</h1>
+        <h3>Web Developer</h3>
+        <p>lorem2 asas sdkslkd dsdsd d</p>
+        <a class="btn btn-primary my-3"
+        href="{% static 'portfolio/marlon_cv.png' %}">Descargar CV</a>
+    </div>     
+
+    
+</header>
+   <div class="row my-4 text-center">
+    <h3>My Projects</h3>
+    <p>lorem200 as</p>
+    {% for project in projects %}
+        <div class="col-md-4 p-4">
+            <div class="card bg-black card-project">
+                <div class="card-body">
+                    <h2>{{ project.title }}</h2>
+                    <p>{{ project.description }}</p>
+                    <img src="{{project.image.url}}" alt="" 
+                         class="img-fluid rounded"/>
+
+                    {% if project.url %}
+                    <a class="btn btn-light rounded-0 btn-sm m-2" 
+                        target="_blank"
+                    href="{{project.url}}">{{project.url}}</a>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+{% endfor %}
+    
+
+{% endblock %}
+   </div> 
